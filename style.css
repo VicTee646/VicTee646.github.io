@@ -3,5 +3,6 @@ body {
     }
 h1 {
     font-family: monospace;
-    font-color: #ffffff;
+    color: #ffffff;
+    font-size: 200%
     }
