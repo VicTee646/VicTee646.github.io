@@ -37,7 +37,10 @@ nav li a:hover {
     animation: type 4s steps(60, end);
     white-space: nowrap;
     overflow: hidden;
+    margin: 0 auto;
 }
-@keyframes type{ 
+
+@keyframes type { 
   from { width: 0; } 
+    to { width: 100%;}
 }
