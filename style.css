@@ -1,15 +1,6 @@
 body {
     background-color: #000000;
     }
-h1 {
-    font-family: monospace;
-    color: #ffffff;
-    font-size: 200%;
-    white-space: nowrap;
-    overflow: hidden;
-    margin: 0 auto;
-    animation: type 4s steps(60, end);
-}
 nav ul {
     list-style-type: none;
     margin: 0;
@@ -34,7 +25,7 @@ nav li a:hover {
     background-color: #111;
 }
 
-.typing {
+.typing h1 {
     font-family: monospace;
     color: #ffffff;
     font-size: 200%;
