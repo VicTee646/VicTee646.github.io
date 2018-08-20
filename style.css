@@ -32,10 +32,16 @@ nav li a:hover {
     white-space: nowrap;
     overflow: hidden;
     margin: 0 auto;
-    animation: type 4s steps(60, end);
+    animation: 
+        type 4s steps(60, end);
+        blink 1s step-end infinite;
 }
 
 @keyframes type { 
   from { width: 0; } 
     to { width: 100%;}
+}
+@keyframes blink { 
+  from, to { border-color: transparent; } 
+    50% {border-color:orange;}
 }
