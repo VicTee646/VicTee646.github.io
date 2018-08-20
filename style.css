@@ -32,6 +32,7 @@ nav li a:hover {
     white-space: nowrap;
     overflow: hidden;
     margin: 0 auto;
+    border-right: .15em solid orange;
     animation: 
         type 4s steps(60, end);
         blink 1s step-end infinite;
