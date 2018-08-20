@@ -1,11 +1,6 @@
 body {
     background-color: #000000;
     }
-h1 {
-    font-family: monospace;
-    color: #ffffff;
-    font-size: 200%;
-    }
 nav ul {
     list-style-type: none;
     margin: 0;
