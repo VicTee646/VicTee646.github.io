@@ -34,10 +34,10 @@ nav li a:hover {
     font-family: monospace;
     color: #ffffff;
     font-size: 200%;
-    animation: type 4s steps(60, end);
     white-space: nowrap;
     overflow: hidden;
     margin: 0 auto;
+    animation: type 4s steps(60, end);
 }
 
 @keyframes type { 
