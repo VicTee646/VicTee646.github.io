@@ -29,3 +29,10 @@ nav li a {
 nav li a:hover {
     background-color: #111;
 }
+
+.typing {
+    font-family: monospace;
+    color: #ffffff;
+    font-size: 200%;
+    animation: type 4s steps(60, end);
+}
