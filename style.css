@@ -35,6 +35,8 @@ nav li a:hover {
     color: #ffffff;
     font-size: 200%;
     animation: type 4s steps(60, end);
+    white-space: nowrap;
+    overflow: hidden;
 }
 @keyframes type{ 
   from { width: 0; } 
