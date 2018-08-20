@@ -44,5 +44,5 @@ nav li a:hover {
 }
 @keyframes blink { 
   from { border-color: transparent; } 
-    to { border-color:orange; }
+    to 50%{ border-color:orange; }
 }
