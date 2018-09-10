@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>VicTee646’s Blog on How to Use Sphinx &mdash; VicTee646  documentation</title>
+  <title>Configuring a Sphinx Project &mdash; VicTee646  documentation</title>
   
 
   
@@ -28,7 +28,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Configuring a Sphinx Project" href="config.html" /> 
+    <link rel="next" title="Making A New Page" href="making-new-page.html" />
+    <link rel="prev" title="VicTee646’s Blog" href="index.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -47,7 +48,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> VicTee646
+            <a href="index.html" class="icon icon-home"> VicTee646
           
 
           
@@ -78,8 +79,8 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="config.html">     Configuring Sphinx Docs</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">     Configuring Sphinx Docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="making-new-page.html">     Making A New Page</a></li>
 </ul>
 
@@ -95,7 +96,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">VicTee646</a>
+          <a href="index.html">VicTee646</a>
         
       </nav>
 
@@ -124,15 +125,15 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>VicTee646’s Blog on How to Use Sphinx</li>
+      <li>Configuring a Sphinx Project</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/config.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -145,27 +146,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="victee646-s-blog-on-how-to-use-sphinx">
-<h1>VicTee646’s Blog on How to Use Sphinx<a class="headerlink" href="#victee646-s-blog-on-how-to-use-sphinx" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="config.html">     Configuring Sphinx Docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="making-new-page.html">     Making A New Page</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="making-new-page.html#creating-the-page">Creating the Page</a></li>
-<li class="toctree-l2"><a class="reference internal" href="making-new-page.html#adding-the-page">Adding the Page</a></li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="configuring-a-sphinx-project">
+<h1>Configuring a Sphinx Project<a class="headerlink" href="#configuring-a-sphinx-project" title="Permalink to this headline">¶</a></h1>
+<p>Now I’ve decided that I want to create a Sphinx document, how do I get started?</p>
+<p>The first step is to ensure that you have sphinx downloaded in the environment that you are working in for this
+project, or simply the base environment if you are not creating a new environment.</p>
+<p>Open your anaconda prompt, and type:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span>
+</pre></div>
 </div>
+<p>Once this is installed, go in to the directory in which you wish to save your sphinx documents</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">docs</span>
+</pre></div>
 </div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
-<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
-</ul>
+<p>Now run the following command</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="o">-</span><span class="n">quickstart</span>
+</pre></div>
+</div>
+<p>Now, a series of questions will appear, allowing you to configure your individual project. I will go through each option, and discuss the outcomes of each.</p>
 </div>
 
 
@@ -176,8 +174,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="config.html" class="btn btn-neutral float-right" title="Configuring a Sphinx Project" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="making-new-page.html" class="btn btn-neutral float-right" title="Making A New Page" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+      
+        <a href="index.html" class="btn btn-neutral" title="VicTee646’s Blog" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

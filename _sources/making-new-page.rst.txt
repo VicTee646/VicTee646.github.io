@@ -1,0 +1,34 @@
+Making A New Page
+=================
+After I had created and configured my sphinx project, I was keen to add new pages to it, in order to relay information
+as I was learning about it.
+The way in which pages are added in sphinx are split in to two parts:
+
+1. Creating the page
+2. Adding this to the toc tree
+
+Creating the Page
+"""""""""""""""""
+The first step to creating a new page in sphinx is to open a new tab in your preferred text editor (at current I
+personally use notepad++) and save this as a '.rst' file. This is done through saving the extension of the page as 
+'.txt' but adding '.rst' to the name of the page. The main convention to naming new pages is to be concise, and where 
+the page name is multiple words, the words should be separated by hyphens ('-').
+
+Adding the Page
+"""""""""""""""
+Once the file has been created, in order to create the html from the rst file, sphinx has to know where this file
+should be referenced and how to reach it.
+
+Within the 'index.rst' file, there is a toc-tre, which is included in the sidebar of the html page, used for
+navigation. To add a page, simply write the text you wish to appear in the navigation bar, followed by a space, and
+the file name (not including .rst) of the file you wish to reference contained within <>.
+
+For example:
+
+.. code-block:: python
+
+	.. toctree::
+	:maxdepth: 2
+	:caption: Contents:
+
+	My Next Page <next-page>
