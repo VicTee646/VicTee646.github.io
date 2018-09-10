@@ -1,0 +1,48 @@
+body {
+    background-color: #000000;
+    }
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #3f3f3f;
+}
+
+nav li {
+    float: right;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: #111;
+}
+
+.typing h1 {
+    font-family: monospace;
+    color: #ffffff;
+    font-size: 200%;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0 auto;
+    border-right: .15em solid orange;
+    animation: 
+        type 4s steps(60, end),
+        blink 1s step-end infinite;
+}
+
+@keyframes type { 
+  from { width: 0; } 
+    to { width: 100%;}
+}
+@keyframes blink { 
+  from, to { border-color: transparent; }
+    50%{ border-color:orange; }
+}
