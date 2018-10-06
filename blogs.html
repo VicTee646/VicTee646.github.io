@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+
+<title>Blogs</title>
+
+<meta name="author" content="Victoria Tassie">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="style.css" rel="stylesheet">
+</head>
+<script>
+
+<!-- Slide down card footer -->
+function displayPlot(Name, height) {
+    var x = document.getElementById(Name);
+    if (x.style.opacity === "0") {
+        //x.style.transform = "scaleY(1) scaleX(1)";
+		x.style.transition = "height 0.5s 0.4s, opacity 0.4s 0.5s";
+		x.style.height = height;
+		x.style.opacity = "1";
+        
+    } else {
+        //x.style.transform = "scaleY(0) scaleX(0)";
+		x.style.transition = "height 0.5s 0.4s, opacity 0.4s  0s";
+		x.style.height = "0";
+		x.style.opacity = "0";
+        
+    }
+}
+</script>
+<body>
+<ul class="nav">
+  <li class="nav-item"><a href="contact.html">Contact</a></li>
+  <li class="nav-item"><a class="active" href="blogs.html">Blogs</a></li>
+  <li class="nav-item"><a href="about.html">About</a></li>
+  <li class="nav-item"><a href="index.html">Home</a></li>
+</ul>
+<br>
+<h1>Blogs</h1>
+<br>
+<div class="card-deck">
+			<div class="card text-white text-center" onclick="displayPlot('when', '5em')">
+			
+				<div class="card-header">
+					<b>Sphinx Docs</b>
+				</div>
+			
+				<div class="card-footer" id="when" style="height:0px; opacity:0;">
+					<p>I have had experience using sphinx docs, please find my blog <a href="html/index.html">here</a>.</p>
+				</div>
+			</div>
+</div>
+</body>
+</html>

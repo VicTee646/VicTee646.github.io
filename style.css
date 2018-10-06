@@ -1,13 +1,46 @@
 /* Style Sheet */
 h1 {
 	color: white;
-	font-family: Open Sans;
+	text-align: center;
 	}
+	
+.nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #383838;
+	border-bottom: 1px solid #32FF51;
+	padding-bottom: 1em;
+}
+	
+.nav-item {
+    float: right;
+}
+
+.nav-item a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav-item a:hover:not(.active) {
+    background-color: #383838;
+}
+
+.active {
+    background-color: #4CAF50;
+}	
+	
+	
 html, body {
     height: 100%;
     margin: 1em;
 	background: #383838;
-	color: #FFFFFF
+	color: #FFFFFF;
+	font-family: Open Sans;
     }
 	
 .card{position:relative;
@@ -19,7 +52,6 @@ html, body {
 	background-clip:border-box;
 	border:1px solid #32FF51;
 	border-radius:.25rem;
-	font-family: Open Sans;
 	text-align: center;
 	margin: 1em;}
 	
@@ -69,3 +101,14 @@ html, body {
 
 .highlight  { background: #eeffcc; padding-left: 1rem; padding-top:0.05em; padding-bottom:0.05em;}
 .highlight .c1 { color: #408090; font-style: italic }
+
+.typewrite{
+	font-size: 32pt;
+	text-align: center;
+}
+
+.link{
+	font-size: 18pt;
+	text-align: center;
+	display: block; /* anchors naturally have display inline, so must change for centering to work */
+}
