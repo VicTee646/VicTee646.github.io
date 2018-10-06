@@ -2,6 +2,26 @@
 <head>
 <link href="style.css" rel="stylesheet">
 </head>
+
+<script>
+function displayPlot(Name, height) {
+    var x = document.getElementById(Name);
+    if (x.style.opacity === "0") {
+        //x.style.transform = "scaleY(1) scaleX(1)";
+		x.style.transition = "height 0.5s 0.4s, opacity 0.4s 0.5s";
+		x.style.height = height;
+		x.style.opacity = "1";
+        
+    } else {
+        //x.style.transform = "scaleY(0) scaleX(0)";
+		x.style.transition = "height 0.5s 0.4s, opacity 0.4s  0s";
+		x.style.height = "0";
+		x.style.opacity = "0";
+        
+    }
+}
+</script>
+
 <body>
 <h1> Victoria Tassie</h1>
 
@@ -13,7 +33,7 @@
 				</div>
 			
 				<div class="card-footer" id="when" style="height:0px; opacity:0;">
-					<p>I have had experience using phinx docs, please find my blog <a href="build/html/index.html">here</a>.</p>
+					<p>I have had experience using phinx docs, please find my blog <a href="html/index.html">here</a>.</p>
 				</div>
 			</div>
 </div>
