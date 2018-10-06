@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<head> 
+     <!-- style sheet -->
+    <link href="_static/css/style.css" rel="stylesheet">
+	
+	<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+<script>
+function displayPlot(Name, height) {
+    var x = document.getElementById(Name);
+    if (x.style.opacity === "0") {
+        //x.style.transform = "scaleY(1) scaleX(1)";
+		x.style.transition = "height 0.5s 0.4s, opacity 0.4s 0.5s";
+		x.style.height = height;
+		x.style.opacity = "1";
+        
+    } else {
+        //x.style.transform = "scaleY(0) scaleX(0)";
+		x.style.transition = "height 0.5s 0.4s, opacity 0.4s  0s";
+		x.style.height = "0";
+		x.style.opacity = "0";
+        
+    }
+}
+
+function displaywork(Name, height, event, boxheightbefore, boxheightafter) {
+    var x = document.getElementById(Name);
+	var sel = getSelection().toString();
+	if(!sel){
+    if (x.style.opacity === "0") {
+        //x.style.transform = "scaleY(1) scaleX(1)";
+		x.style.transition = "height 0.5s 0.4s, opacity 0.4s 0.5s";
+		x.style.height = height;
+		x.style.opacity = "1";
+		x.parentElement.style.height = boxheightbefore;
+        
+    } else {
+        //x.style.transform = "scaleY(0) scaleX(0)";
+		x.style.transition = "height 0.5s 0.4s, opacity 0.4s  0s";
+		x.style.height = "0";
+		x.style.opacity = "0";
+		x.parentElement.style.height = boxheightafter;
+        
+    }
+	}
+	event.stopPropagation();
+}
+</script>
+<body>
+<h1>Introduction to Linear Regression</h1>
+
+<div class="card-deck">
+			<div class="card text-white text-center" onclick="displayPlot('when', '12em')">
+			
+				<div class="card-header">
+					<b>When</b>
+				</div>
+			
+				<div class="card-footer" id="when" style="height:0px; opacity:0;">
+					<p>Linear Regression is used when there is a variable that we want to investigate (aka the <strong>Target Variable</strong>),
+					and (a) variable(s) that we think may affect / influence the target variable (aka the <strong> Predictor Variable(s)</strong></p>
+				</div>
+			</div>
+			
+			<div class="card text-white text-center" onclick="displayPlot('aim', '15em')">
+			
+				<div class="card-header">
+					<b>Aim</b>
+				</div>
+			
+				<div class="card-footer" id="aim" style="height:0px; opacity:0;">
+					<p>The aim of linear regression is to investigate the relationship between these aforementioned types of variables, through finding 
+					the line of best fit.</p> <p>This is the line that has the least error between a predicted value of the target variable and the actual
+					value of the target variable.</p>
+				</div>
+			</div>
+			
+			<div class="card text-white text-center" onclick="displayPlot('error', '22em')">
+			
+				<div class="card-header">
+					<b>Error</b>
+				</div>
+			
+				<div class="card-footer" id="error" style="height:0px; opacity:0;">
+					<p>Error is the difference between a predicted value and the actual value of the target variable. </p>
+					<p>In the case of linear regression, we use the <a href="animation.html" target="_blank">Mean Squared Error (MSE)</a>.</p>
+					<p>It is important to remember that error is a function of the parameters of our model, that is, the parameters that we choose for
+					the model affect the error. As we want to minimise the error, we want to find the turning point / minima of the error function using 
+					calculus.</p>
+				</div>
+			</div>
+			
+			<div class="card text-white text-center" onclick="displayPlot('calculus', '26em')">
+			
+				<div class="card-header">
+					<b>Calculus</b>
+				</div>
+			
+				<div class="card-footer" id="calculus" style="height:0px; opacity:0;">
+					<p>Calculus is a branch of mathematics, focused around how quantities vary with each other, as opposed to the value of the quantity
+					itself. It was discovered in the 17th century by Leibniz / Newton.</p>
+					<p>We are particularly interested in the gradient of the error function, i.e. how the error varies with the different parameter values.
+					 The gradient will provide a direction for the greatest decrease in the error, and we wish to find the point where the error is least,
+					 i.e. where the gradient is zero (cannot go any lower).</p>
+				</div>
+			</div>
+			
+</div>
+
+<div class="card-deck">
+
+	<div class="card text-white text-center" onclick="displayPlot('ols', '13em')">
+			
+		<div class="card-header">
+			<b>Ordinary Least Square</b>
+		</div>
+	
+		<div class="card-footer" id="ols" style="height:0px; opacity:0;" onclick="displaywork('ols-work','19em',event, '32em','13em')">
+			<p>The first method is using OLS - a method which takes advantage of the properties of the MSE error function we are using - the function is
+			convex. This means that there is a single solution to minimising the error function, and we can find this by finding the derivative of the
+			error function and setting it to zero.</p>
+			
+			<div id="ols-work" style="height:0px; opacity:0;"> 
+				<p>We start with $ MSE = \frac{1}{n} \sum{(y_{pred} - y_i)^2} = \frac{1}{n} \sum{(\beta_0 + \beta_1 x_i - y_i)^2}$
+					<br> Then differentiating: $ \frac{\partial MSE}{\partial \beta_0} =  \frac{2}{n} \sum{(\beta_0 + \beta_1 x_i - y_i)}$
+					<br> We then put this to zero, as we are finding the minimum point of the function: $0 = \frac{2}{n} \sum{(\beta_0 + \beta_1 x_i - y_i}$
+					<br> Separating the summations, we get: $ 0 = \sum{\beta_0} + \sum{\beta_1 x_i} - \sum{y_i)}$
+					<br> Rearranging this, we get: $ 0 = n\beta_0 + n\beta_1 \bar{x} - \sum{y_i}$
+					<br>
+					<br> The differential with respect to $\beta_1$ is $ \frac{\partial MSE}{\partial \beta_1} =  \frac{2}{n} \sum{(\beta_0 + \beta_1 x_i - y_i)x_i}$
+					<br> Using similar techniques, we get: $ 0 = n\beta_0 \bar{x} + \beta_1 \sum{x_i^2} - \sum{x_i y_i}$
+					<br> Substituting $ n\beta_0$ in to our second equation, we get: $ 0 = \bar{x}(\sum{y_i} - n\beta_1) + \beta_1 \sum{x_i^2} - \sum{x_i y_i} $ 
+					<br>Rearranging, we get: $ \beta_1 (\sum{x_i^2} - n\bar{x}) = \sum{x_i y_i} - n\bar{x}\bar{y} $ 
+					<br> Then we divide and rearrange: $ \beta_1 = \frac{\sum{(x_i - \bar{x})(y_i - \bar{y})}}{\sum{(x_i - \bar{x})^2}} $
+				</p>
+			</div>
+			
+			<p> The final result is that we can use the following formula to work out the best estimates of the parameters: $ \beta_1 = \frac{\sum
+			{(x_i - \bar{x})(y_i - \bar{y})}}{\sum{(x_i - \bar{x})^2}} $.</p>
+		</div>
+	</div>
+			
+	<div class="card text-white text-center" onclick="displayPlot('gd', '25em')">
+			
+		<div class="card-header">
+			<b>Gradient Descent</b>
+		</div>
+		
+		<div class="card-footer" id="gd" style="height:0px; opacity:0;">
+			<p>The second method is suited for when simple linear regression is generalised to the case where there are multiple predictor variables.</p>
+			<p> Gradient Descent has a 5 main stages: 
+				<ol>
+					<li> Initialise the parameters (this can be done randomly, or through an educated guess)</li>
+					<li>Calculate the gradient of the error function with respect to each of the parameters</li>
+					<li> Adjust the parameters according to the gradient</li>
+					<li> Use the new parameters in the model and calculate the error of the model </li>
+					<li> Repeat steps 2-4 until there is no significant change in the reduction of the error function</li>
+				</ol>
+				<br>
+				For linear regression, we have already worked out the derivative of the error function with respect to each of the parameters. We use these to provide steps
+				for the adjustment of the parameters. 
+				<br> We would adjust the parameters in the following way:
+				<br> $ \hat{\beta}_0 = \hat{\beta}_0 - \alpha \times \frac{2}{n} \sum{(y_{pred_i} - y_i)} $ 
+				<br> $ \hat{\beta}_1 = \hat{\beta}_1 - \alpha \times \frac{2}{n} \sum{(y_{pred_i} - y_i)x_i} $</p>
+		</div>
+	</div>		
+
+</div>
+
+<div class="card-deck">
+
+	<div class="card text-white text-center" onclick="displayPlot('ex', '13em')">
+			
+		<div class="card-header">
+			<b>Example</b>
+		</div>
+	
+		<div class="card-footer" id="ex" style="height:0px; opacity:0;" onclick="displaywork('code','19em',event, '32em','13em')">
+			<p>We will now go through an example, with made up data.
+			<div class="highlight"> <pre><span></span><span class="c1"># import the libraries</span><br> <span class="o"> * </span></pre> </div></p>
+			
+			
+			<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the libraries</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="c1"># create the train and test data (70 : 30 split)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">)])</span>
+<span class="n">rand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">)])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">5.72</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">rand</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="mi">700</span><span class="p">]</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">700</span><span class="p">:]</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:</span><span class="mi">700</span><span class="p">]</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">700</span><span class="p">:]</span>
+</pre></div>
+</div>
+<p>Now we initialise the parameters, choosing alpha = 0.0001:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialise the parameters</span>
+<span class="n">b_0</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">b_1</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.0001</span>
+</pre></div>
+</div>
+<p>Then we use a for-loop to complete 1000 iterations of the gradient descent:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># use gradient descent for optimisation of parameters</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">b_0</span> <span class="o">+</span> <span class="n">b_1</span><span class="o">*</span><span class="n">x</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span>
+        <span class="n">mse</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">error</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">n</span>
+        <span class="n">b_0</span> <span class="o">-=</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">alpha</span><span class="o">*</span><span class="nb">sum</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+        <span class="n">b_1</span> <span class="o">-=</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">alpha</span><span class="o">*</span><span class="nb">sum</span><span class="p">(</span><span class="n">error</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The parameters are:</span><span class="se">\n</span><span class="s1"> b_0 = {} </span><span class="se">\n</span><span class="s1"> b_1 = {} </span><span class="se">\n</span><span class="s1"> with MSE = {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">b_0</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">b_1</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">mse</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>Finally we test our parameter estimates on our test data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># predict the y values for the test set, using calculated parameters</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">b_0</span> <span class="o">+</span> <span class="n">b_1</span><span class="o">*</span><span class="n">x_test</span></div>
+	</div>
+			
+			<div id="code" style="height:0px; opacity:0;"> 
+				
+			</div>
+			
+		
+	
+</div>
+</div>	
+</div>
+			
+</body>
+</html>
