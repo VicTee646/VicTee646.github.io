@@ -37,11 +37,16 @@ h1 {
 	
 html, body {
     height: 100%;
-    margin: 1em;
+    margin: 0.5em;
 	background: #383838;
 	color: #FFFFFF;
-	font-family: Open Sans;
+	font-family: Open Sans, Helvetica, sans-serif;
     }
+	
+body {
+	display: flex;
+	flex-direction: column;
+}
 	
 .card{position:relative;
 	display:-ms-flexbox;
@@ -111,4 +116,19 @@ html, body {
 	font-size: 18pt;
 	text-align: center;
 	display: block; /* anchors naturally have display inline, so must change for centering to work */
+}
+
+.footer{
+	overflow: hidden;
+    background-color: #383838;
+	border-top: 1px solid #32FF51;
+	padding-top: 0.5em;
+	flex-shrink: 0;
+}
+
+/*.push{
+	height: 3em;	
+}*/
+.wrapper{
+	flex: 1 0 auto;
 }
