@@ -11,19 +11,18 @@
 </head>
 <script>
 
-<!-- Slide down card footer -->
-function displayPlot(Name, height) {
+function slideOpen(Name, width) {
     var x = document.getElementById(Name);
     if (x.style.opacity === "0") {
         //x.style.transform = "scaleY(1) scaleX(1)";
-		x.style.transition = "height 0.5s 0.4s, opacity 0.4s 0.5s";
-		x.style.height = height;
+		x.style.transition = "width 0.5s 0.4s, opacity 0.4s 0.5s";
+		x.style.width = width;
 		x.style.opacity = "1";
         
     } else {
         //x.style.transform = "scaleY(0) scaleX(0)";
-		x.style.transition = "height 0.5s 0.4s, opacity 0.4s  0s";
-		x.style.height = "0";
+		x.style.transition = "width 0.5s 0.4s, opacity 0.4s  0s";
+		x.style.width = "0";
 		x.style.opacity = "0";
         
     }
@@ -40,18 +39,39 @@ function displayPlot(Name, height) {
 <div class="wrapper">
 <h1>Blogs</h1>
 <br>
+
 <div class="card-deck">
-			<div class="card text-white text-center" onclick="displayPlot('when', '5em')">
+			<div class="card-side text-white text-center" onclick="slideOpen('test', '50em')">
 			
-				<div class="card-header">
+				<div class="card-header-side">
 					<b>Sphinx Docs</b>
 				</div>
 			
-				<div class="card-footer" id="when" style="height:0px; opacity:0;">
-					<p>I have had experience using sphinx docs, please find my blog <a href="html/index.html">here</a>.</p>
+				<div class="card-footer-side" id="test" style="width:0px; opacity:0;">
+					<p style="padding: 0px;">Sphinx docs is a useful way to document work, including processes and code, in a logical format. It 
+					lends itself to being straight-forward and simple yet effective at getting the message across. Please find all my Sphinx Docs 
+					blogs <a href="html/index.html">here</a>.</p>
 				</div>
 			</div>
 </div>
+
+<div class="card-deck" style="float:right;">
+			<div class="card-side text-white text-center" onclick="slideOpen('test1', '50em')">
+			
+			
+				<div class="card-footer-side" id="test1" style="width:0px; opacity:0;">
+					<p>As a starting point for my data science learning, I decided to look in to Linear Regression. Please find a brief overview of
+					the algorithm <a href="blogs/linear-regression/linear-regression.html">here</a>.</p>
+				</div>
+				
+				<div class="card-header-side">
+					<b>Linear Regression</b>
+				</div>
+				
+			</div>
+</div>
+
+
 </div>
 
 <footer class="footer">
