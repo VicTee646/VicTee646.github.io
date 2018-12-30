@@ -3,32 +3,6 @@ h1 {
 	color: white;
 	text-align: center;
 	}
-	
-.nav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #383838;
-	border-bottom: 1px solid #32FF51;
-	padding-bottom: 1em;
-}
-	
-.nav-item {
-    float: right;
-}
-
-.nav-item a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.nav-item a:hover:not(.active) {
-    background-color: #383838;
-}
 
 .active {
     background-color: #4CAF50;
@@ -38,7 +12,6 @@ h1 {
 html, body {
     height: 100%;
     margin: 0.5em;
-	background: #383838;
 	color: #FFFFFF;
 	font-family: Open Sans, Helvetica, sans-serif;
     }
@@ -118,13 +91,6 @@ body {
 	display: block; /* anchors naturally have display inline, so must change for centering to work */
 }
 
-.footer{
-	overflow: hidden;
-    background-color: #383838;
-	border-top: 1px solid #32FF51;
-	padding-top: 0.5em;
-	flex-shrink: 0;
-}
 
 /*.push{
 	height: 3em;	
