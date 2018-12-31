@@ -73,3 +73,72 @@ function slideOpen(Name, width) {
         
     }
 }
+
+// For linear regression pages
+function displayPlot(Name, height) {
+    var x = document.getElementById(Name);
+    if (x.style.opacity === "0") {
+        //x.style.transform = "scaleY(1) scaleX(1)";
+		x.style.transition = "height 0.5s 0.4s, opacity 0.4s 0.5s";
+		x.style.height = height;
+		x.style.opacity = "1";
+        
+    } else {
+        //x.style.transform = "scaleY(0) scaleX(0)";
+		x.style.transition = "height 0.5s 0.4s, opacity 0.4s  0s";
+		x.style.height = "0";
+		x.style.opacity = "0";
+        
+    }
+}
+
+function height(Name){
+	var x = document.getElementById(Name);
+	x.style.height='auto';
+	var size = x.offsetHeight;
+	x.style.height='1em';
+	x.style.transition = "height 0.5s 0.4s, opacity 0.4s 0.5s";
+	x.style.height='0';
+	return size}
+
+
+function displayPlot1(Name) {
+    var x = document.getElementById(Name);
+    if (x.style.opacity === "0") {
+        //x.style.transform = "scaleY(1) scaleX(1)";
+		
+		x.style.transition = "height 0.5s 0.4s, opacity 0.4s 0.5s";
+		x.style.height = height(Name) + 'px';
+		x.style.opacity = "1";
+        
+    } else {
+        //x.style.transform = "scaleY(0) scaleX(0)";
+		x.style.transition = "height 0.5s 0.4s, opacity 0.4s  0s";
+		x.style.height = "0";
+		x.style.opacity = "0";
+        
+    }
+}
+
+function displaywork(Name, height, event, boxheightbefore, boxheightafter) {
+    var x = document.getElementById(Name);
+	var sel = getSelection().toString();
+	if(!sel){
+    if (x.style.opacity === "0") {
+        //x.style.transform = "scaleY(1) scaleX(1)";
+		x.style.transition = "height 0.5s 0.4s, opacity 0.4s 0.5s";
+		x.style.height = height;
+		x.style.opacity = "1";
+		x.parentElement.style.height = boxheightbefore;
+        
+    } else {
+        //x.style.transform = "scaleY(0) scaleX(0)";
+		x.style.transition = "height 0.5s 0.4s, opacity 0.4s  0s";
+		x.style.height = "0";
+		x.style.opacity = "0";
+		x.parentElement.style.height = boxheightafter;
+        
+    }
+	}
+	event.stopPropagation();
+}
